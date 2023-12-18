@@ -1,11 +1,8 @@
 const root = document.querySelector('#root')
 const btnAdd = document.querySelector('.btn-add')
-// <!-- <div class="counter">
-// <button class="btn btn-inc">+</button>
-// <h3 class="number">0</h3>
-// <button class="btn btn-dec">-</button>
-// <button class="btn btn-clr">C</button>
-// </div> -->
+const suminfo = document.querySelector('.show-sum')
+
+let total = 0
 function counter(){
     let countNum = 0
 
@@ -22,12 +19,10 @@ function updatCConter(n){
     if(countNum + n < 0){
         return
     }
-    let total = 0
-
     countNum += n
     total += n
     number.textContent = countNum
-    sum
+    suminfo.textContent = `Sum = ${total}`
 }
     const delCounter = (e) =>{
         console.log (e.target.closest('.counter'))
@@ -48,11 +43,7 @@ btnDec.addEventListener('click', () => updatCConter(-1))
 btnClr.addEventListener('click', () => updatCConter(-countNum))
 btnDel.addEventListener('click', delCounter)
 
-counter.append(btnInc)
-counter.append(number)
-counter.append(btnDec)
-counter.append(btnClr)
-counter.append(btnDel)
+counter.append(btnInc,number,btnDec,btnClr,btnDel)
 
 return counter;
 }
